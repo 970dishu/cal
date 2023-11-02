@@ -1,12 +1,10 @@
 const input = document.getElementById("data-con");
 
-const modules = document.querySelector(".modules");
 
 let res = 0;
 let inputdata = "";
 let typeddata = 0;
 let operator = ""; //+ * 1+2 1*2
-
 
 
 input.addEventListener("input", (e) => {
@@ -18,40 +16,16 @@ console.log(arryOfButtons);
 
 arryOfButtons.forEach((eachElement) => {
   eachElement.addEventListener("click", (e) => {
-    // console.log(eachElement.classList[1])
-    console.log(res, inputdata, operator);
     if (eachElement.classList[1] == "equals") {
-      // calculate(res, parseInt(inputdata), operator);
-      input.value = eval(input.value)
-      inputdata = "";
-      operator = "";
+      inputdata = eval(input.value)
+      input.value = inputdata
     } else {
       figureOutClick(eachElement.classList[1]);
     }
 
-    console.log(res, inputdata, operator);
   });
 });
 
-// function afterOperatorClicked(currentOp) {
-//   // 1 + 2 * 5
-//   // operator = +
-//   if (res != 0 && inputdata != "") {
-//     calculate(res, parseInt(inputdata), operator);
-
-//   } else if (res == 0) {
-//     res = parseInt(inputdata); // 1
-//   }
-//   inputdata = "";
-//   operator = currentOp
-
-// }
-
-// function makeResZero() {
-//   if (operator == "" && res != 0) {
-//     res = 0; // 1
-//   }
-// }
 function makeResZero() {
   if (res != 0) {
     res = 0; // 1
@@ -126,30 +100,4 @@ function figureOutClick(value) {
   input.value = (inputdata);
 }
 
-function calculate(a, b, operator) {
-  switch (operator) {
-    case "+":
-      console.log(a + b);
-      res = a + b;
-      break;
-    case "-":
-      console.log(a - b);
-      res = a - b;
-      break;
-    case "/":
-      console.log(a / b);
-      res = a / b;
-      break;
-    case "*":
-      console.log(a * b);
-      res = a * b;
-      break;
-    case "%":
-      console.log(a % b);
-      res = a % b;
-      break;
-    default:
-      console.log("wrong operator");
-  }
-  input.value = res;
-}
+
