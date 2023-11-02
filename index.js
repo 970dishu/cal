@@ -7,8 +7,9 @@ const modules = document.querySelector(".modules")
 let res = 0;
 let inputdata = "";
 let typeddata = 0;
-let operator = "";
+let operator = ""; //+ * 1+2 1*2
 
+// operator 1 + 2 * 5
 //  inputvalue = 1 , 
 //  + ---> if res == 0 ---> yes ---> res = inputvalue = 1
 //  inputvalue = 5 
@@ -43,20 +44,30 @@ arryOfButtons.forEach((eachElement) => {
 const naam = (a, b) => {
   return a + b;
 };
+// 1+2*5
+1+4*2*5-(5+10)
+1+2*5
 
-function afterOperatorClicked() {
+function afterOperatorClicked(currentOp) {
+  // 1 + 2 * 5
+  // operator = +
   if (res != 0 && inputdata != "") {
     calculate(res, parseInt(inputdata), operator);
     
   } else if (res == 0) {
-    res = parseInt(inputdata);
+    res = parseInt(inputdata); // 1
   }
   inputdata = "";
+  operator = currentOp
 
 }
+
+
+
+
 function makeResZero() {
   if (operator == "" && res != 0) {
-    res = 0;
+    res = 0; // 1
   }
 }
 
@@ -104,24 +115,24 @@ function figureOutClick(value) {
       inputdata = inputdata + "0";
       break;
     case "modules":
-      operator = "%";
-      afterOperatorClicked();
+      
+      afterOperatorClicked("%");
       break;
     case "plus":
-      operator = "+";
-      afterOperatorClicked();
+      
+      afterOperatorClicked("+");
       break;
     case "minus":
-      operator = "-";
-      afterOperatorClicked();
+      
+      afterOperatorClicked("-");
       break;
     case "multiply":
-      operator = "*";
-      afterOperatorClicked();
+      
+      afterOperatorClicked("*");
       break;
     case "divide":
-      operator = "/";
-      afterOperatorClicked();
+      
+      afterOperatorClicked("/");
       break;
     case "null":
       inputdata = "";

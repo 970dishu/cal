@@ -27,7 +27,7 @@
     outline: none;
     border: none;
     width: 100%;
-    direction: rtl;
+    /* direction: rtl; */
     padding: 0.5rem;
 }
 input::-webkit-outer-spin-button,
