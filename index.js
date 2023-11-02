@@ -1,42 +1,21 @@
-const input = document.querySelector("#data-con");
+const input = document.getElementById("data-con");
+
+const modules = document.querySelector(".modules")
+
+
 
 let res = 0;
 let inputdata = "";
 let typeddata = 0;
 let operator = "";
 
-// inputdata = 123
-// +-/*% if res == 0 --> res = inputdata, res = 123, inputdata=0
-// inputdata = 54
-// equals --> func -> res + inputdata, input.value
-// +-/*% if res = 0 , inputdata -> res + inputdata
-// +-/*% if res = 4 +  inputdata
-// +-/*% if res = 4 , inputdata, res=0
+//  inputvalue = 1 , 
+//  + ---> if res == 0 ---> yes ---> res = inputvalue = 1
+//  inputvalue = 5 
+// * , oprator = * ,calculate function = 1 5 *
+// inputvalue = 6
 
-// inputdat 2 , res = 0
-// +-/*% = + ---> res = inputdata , inputdata = 0
-// inputdata = 3 ,
-// equals ---> res +-/*% inputdata
 
-// inputdata = 2 , res = 5 --- res = 0
-// +-/*% = + ---> res = inputdata , inputdata = 0
-// inputdata = 3 ,
-// equals ---> res +-/*% inputdata
-
-// res = 5
-// +-/*% = +  --- inputdata = 2
-// equals ----> res + inputdata
-
-// res = 0 , inputdata = 6
-// + ---> if res == 0  ? res = inputdata , inputdata =""
-// inputdata = 4 --> 6+4 = 10 , 4 , res = 6
-// * , if res == 0 ? ---> res=6 , inputdata = ""
-// inputdata = 8 , equals ----> res=6, inputdata=8 , oprator=*
-// 48 ---> 80
-
-//  6 + res , inputdata ->>> res + inputdata
-//  6 + waittttt - > inoutdata res = 6,
-//  inputdata =4 equals ---> 10
 
 input.addEventListener("input", (e) => {
   typeddata = e.target.value;
@@ -68,7 +47,7 @@ const naam = (a, b) => {
 function afterOperatorClicked() {
   if (res != 0 && inputdata != "") {
     calculate(res, parseInt(inputdata), operator);
-    res = 4;
+    
   } else if (res == 0) {
     res = parseInt(inputdata);
   }
