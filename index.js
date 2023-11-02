@@ -1,20 +1,11 @@
 const input = document.getElementById("data-con");
 
-const modules = document.querySelector(".modules")
-
-
+const modules = document.querySelector(".modules");
 
 let res = 0;
 let inputdata = "";
 let typeddata = 0;
 let operator = ""; //+ * 1+2 1*2
-
-// operator 1 + 2 * 5
-//  inputvalue = 1 , 
-//  + ---> if res == 0 ---> yes ---> res = inputvalue = 1
-//  inputvalue = 5 
-// * , oprator = * ,calculate function = 1 5 *
-// inputvalue = 6
 
 
 
@@ -28,45 +19,41 @@ console.log(arryOfButtons);
 arryOfButtons.forEach((eachElement) => {
   eachElement.addEventListener("click", (e) => {
     // console.log(eachElement.classList[1])
-    console.log(res,inputdata,operator)
+    console.log(res, inputdata, operator);
     if (eachElement.classList[1] == "equals") {
-      calculate(res, parseInt(inputdata), operator);
+      // calculate(res, parseInt(inputdata), operator);
+      input.value = eval(input.value)
       inputdata = "";
       operator = "";
     } else {
       figureOutClick(eachElement.classList[1]);
     }
 
-    console.log(res,inputdata,operator)
+    console.log(res, inputdata, operator);
   });
 });
 
-const naam = (a, b) => {
-  return a + b;
-};
-// 1+2*5
-1+4*2*5-(5+10)
-1+2*5
+// function afterOperatorClicked(currentOp) {
+//   // 1 + 2 * 5
+//   // operator = +
+//   if (res != 0 && inputdata != "") {
+//     calculate(res, parseInt(inputdata), operator);
 
-function afterOperatorClicked(currentOp) {
-  // 1 + 2 * 5
-  // operator = +
-  if (res != 0 && inputdata != "") {
-    calculate(res, parseInt(inputdata), operator);
-    
-  } else if (res == 0) {
-    res = parseInt(inputdata); // 1
-  }
-  inputdata = "";
-  operator = currentOp
+//   } else if (res == 0) {
+//     res = parseInt(inputdata); // 1
+//   }
+//   inputdata = "";
+//   operator = currentOp
 
-}
+// }
 
-
-
-
+// function makeResZero() {
+//   if (operator == "" && res != 0) {
+//     res = 0; // 1
+//   }
+// }
 function makeResZero() {
-  if (operator == "" && res != 0) {
+  if (res != 0) {
     res = 0; // 1
   }
 }
@@ -115,24 +102,19 @@ function figureOutClick(value) {
       inputdata = inputdata + "0";
       break;
     case "modules":
-      
-      afterOperatorClicked("%");
+      inputdata = inputdata + "%";
       break;
     case "plus":
-      
-      afterOperatorClicked("+");
+      inputdata = inputdata + "+";
       break;
     case "minus":
-      
-      afterOperatorClicked("-");
+      inputdata = inputdata + "-";
       break;
     case "multiply":
-      
-      afterOperatorClicked("*");
+      inputdata = inputdata + "*";
       break;
     case "divide":
-      
-      afterOperatorClicked("/");
+      inputdata = inputdata + "/";
       break;
     case "null":
       inputdata = "";
@@ -141,7 +123,7 @@ function figureOutClick(value) {
     default:
   }
 
-  input.value = parseInt(inputdata);
+  input.value = (inputdata);
 }
 
 function calculate(a, b, operator) {
